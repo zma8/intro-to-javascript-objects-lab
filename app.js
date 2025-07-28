@@ -17,6 +17,7 @@ const game = {
     { name: "pokeball", quantity: 8 },
     { name: "rare candy", quantity: 99 },
   ],
+  
 }
 console.dir(pokemon, { maxArrayLength: null });
 console.log(pokemon[59]);
@@ -152,4 +153,48 @@ game.catchPokemons(pokemooms);
 console.log(game.items);
 
 //ex12
+for (let c=0;c<game.gyms.length;c++){
+    if(game.gyms[c].difficulty<6){
+        game.gyms[c].completed=true;
+    }
+}
+console.log(game.gyms);
 
+//ex13
+game.gymStatus=function(){
+const gymTally={
+    completed:0,
+    incomplete:0
+};
+
+for(let i=0;i<this.gyms.length;i++){
+    if(this.gyms[i].completed){
+        gymTally.completed++;
+    }
+    else {
+        gymTally.incomplete++;
+    }
+}
+console.log(gymTally);
+}
+
+game.gymStatus();
+
+//ex14
+
+game.partyCount=function(){
+    return this.party.length;
+}
+console.log('number of pokemons in the party ' ,game.partyCount());
+
+//ex15 
+for (let c=0;c<game.gyms.length;c++){
+    if(game.gyms[c].difficulty<8){
+        game.gyms[c].completed=true;
+    }
+}
+console.log(game.gyms);
+game.gymStatus();
+
+//ex16
+console.log(game);
